@@ -1,0 +1,254 @@
+/* ============ Base ============ */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, Arial, sans-serif;
+  line-height: 1.5;
+  color: #EDE7DA;
+  background-color: #0E1A1F;
+}
+
+/* ============ Cabeçalho ============ */
+
+.site-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;   /* clube à esquerda, menu à direita */
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  background-color: #0E1A1F;
+}
+
+.club {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.main-nav ul {
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.main-nav a {
+  color: #8AA3A0;
+  text-decoration: none;
+}
+
+.main-nav a:hover,
+.main-nav a:focus-visible {
+  color: #E8B04B;
+}
+
+/* ============ Layout principal ============ */
+
+.layout {
+  display: flex;                    /* campo + painel lateral */
+  gap: 1rem;
+  padding: 0 1.5rem 1.5rem;
+}
+
+/* ============ Campo ============ */
+
+.pitch {
+  flex-grow: 1;                     /* ocupa o espaço restante */
+  display: flex;
+  flex-direction: row;              /* setores lado a lado */
+  min-height: 520px;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #15302F;
+}
+
+.sector {
+  flex-grow: 2;
+  flex-basis: 0;
+  display: flex;
+  flex-direction: column;           /* rótulo acima, jogadores abaixo */
+  gap: 0.5rem;
+  padding: 1rem 0.5rem;
+}
+
+.sector-title {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 400;
+  text-align: center;
+  color: #8AA3A0;
+}
+
+.players {
+  flex-grow: 1;                     /* ocupa a altura restante do setor */
+  display: flex;
+  flex-direction: column;           /* jogadores empilhados */
+  justify-content: space-around;    /* distribuição vertical */
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sector-goalkeeper {
+  flex-grow: 1;                     /* setor mais estreito */
+}
+
+.sector:nth-child(even) {
+  background-color: #1B3B39;        /* faixas alternadas */
+}
+
+/* ============ Jogadores ============ */
+
+.player {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  background-color: #0E1A1F;
+  transition: transform 0.2s;
+}
+
+.player:hover {
+  transform: scale(1.08);           /* desafio adicional */
+}
+
+.number {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.name {
+  font-size: 0.8rem;
+  color: #8AA3A0;
+}
+
+.player-advanced {
+  align-self: flex-end;             /* lateral deslocado do setor */
+}
+
+.player-captain {
+  background-color: #A34329;
+  outline: 2px solid #E8B04B;       /* faixa de capitão */
+  outline-offset: 2px;
+}
+
+.player-captain .name {
+  color: #EDE7DA;
+}
+
+/* ============ Painel lateral ============ */
+
+.bench {
+  flex-grow: 0;
+  flex-shrink: 0;                   /* não encolhe */
+  flex-basis: 220px;                /* largura fixa */
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: #1B3B39;
+}
+
+.bench h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+}
+
+.subs {
+  display: flex;
+  flex-wrap: wrap;                  /* quebra em várias linhas */
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.sub {
+  flex-grow: 1;
+  flex-basis: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem;
+  border-radius: 6px;
+  background-color: #0E1A1F;
+}
+
+.sub-goalkeeper {
+  order: -1;                        /* goleiro reserva aparece primeiro */
+}
+
+.coach {
+  padding: 0.5rem;
+  border-radius: 6px;
+  text-align: center;
+  background-color: #0E1A1F;
+}
+
+/* ============ Rodapé ============ */
+
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  color: #8AA3A0;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+.social {
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.social a {
+  color: #8AA3A0;
+  text-decoration: none;
+}
+
+.social a:hover {
+  color: #E8B04B;
+}
+
+/* ============ Telas pequenas ============ */
+
+@media (max-width: 800px) {
+
+  .site-header {
+    flex-direction: column;
+  }
+
+  .layout {
+    flex-direction: column;         /* painel abaixo do campo */
+  }
+
+  .pitch {
+    flex-direction: column-reverse; /* ataque em cima, goleiro embaixo */
+  }
+
+  .players {
+    flex-direction: row;            /* jogadores lado a lado */
+  }
+
+  .player-advanced {
+    align-self: flex-start;
+  }
+
+  .bench {
+    flex-basis: auto;
+  }
+
+  .site-footer {
+    flex-direction: column;
+  }
+
+}
