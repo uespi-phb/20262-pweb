@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Exemplo #1</title>
+  </head>
+  <body>
+    <h1>Programação Web</h1>
+    <h1>UESPI Parnaíba</h1>
+    <p>
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos, quod!
+      Mollitia suscipit quaerat sed quod recusandae consequatur modi sunt
+      corporis consequuntur incidunt quae iusto ipsum quo et nisi, eius rem!
+    </p>
+    <script>
+      window.addEventListener("load", loadedPage);
+
+      function loadedPage() {
+        const elems = document.querySelectorAll("h1");
+        for (const elem of elems) {
+          elem.addEventListener("click", h1Click);
+        }
+      }
+
+      function h1Click(event) {
+        // console.log(event);
+        const elem = event.target;
+        if (elem.style.color === "blue") {
+          elem.style.color = "black";
+        } else {
+          elem.style.color = "blue";
+        }
+      }
+    </script>
+  </body>
+</html>
