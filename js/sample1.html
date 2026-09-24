@@ -26,11 +26,7 @@
       function h1Click(event) {
         // console.log(event);
         const elem = event.target;
-        if (elem.style.color === "blue") {
-          elem.style.color = "black";
-        } else {
-          elem.style.color = "blue";
-        }
+        elem.style.color = elem.style.color === "blue" ? "black" : "blue";
       }
     </script>
   </body>

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sample #3</title>
+    <style>
+      main {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      article {
+        background-color: lightgray;
+        padding: 4px;
+        height: 50px;
+        width: 50px;
+        margin: 5px;
+        border: 1px solid darkgray;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <article>A</article>
+      <article>B</article>
+      <article>C</article>
+      <article>D</article>
+      <article>E</article>
+      <article>F</article>
+      <article>G</article>
+    </main>
+    <script>
+      window.addEventListener("load", () => {
+        const articles = document.getElementsByTagName("article");
+
+        for (const elem of articles) {
+          elem.addEventListener("click", toggleVisibility);
+        }
+      });
+
+      function toggleVisibility(event) {
+        console.log("toggle()");
+        const visible = (event.target.style.visibility = "visible");
+        event.target.style.visibility = visible ? "hidden" : "visible";
+      }
+    </script>
+  </body>
+</html>

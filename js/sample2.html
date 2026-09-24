@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sample #2</title>
+  </head>
+  <style>
+    .panel {
+      background-color: yellow;
+      width: 60%;
+      margin: 1rem auto;
+      padding: 1rem;
+      border-radius: 8px;
+      visibility: hidden;
+    }
+  </style>
+  <body>
+    <h1>ESTE É O TEXTO DO BODY</h1>
+    <div id="panel" class="panel">Good afeternoon everybody!!!</div>
+    <!-- <button id="button" onclick="toggleMessage()">Show Message</button> -->
+    <button id="button">Show Message</button>
+
+    <script>
+      //   document.getElementById("button").onclick = toggleMessage;
+      document
+        .getElementById("button")
+        .addEventListener("click", toggleMessage);
+
+      function toggleMessage() {
+        const button = document.getElementById("button");
+        const panel = document.getElementById("panel");
+
+        const isPanelVisible = panel.style.visibility === "visible";
+
+        if (isPanelVisible) {
+          panel.style.visibility = "hidden";
+          button.textContent = "Show Message";
+        } else {
+          panel.style.visibility = "visible";
+          button.textContent = "Hide Message";
+        }
+      }
+    </script>
+  </body>
+</html>
