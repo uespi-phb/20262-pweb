@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sample #4</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      ul {
+        list-style-type: none;
+      }
+      li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: lightskyblue;
+        border: 1px solid blue;
+        margin-top: 4px;
+        padding: 4px 10px;
+        border-radius: 5px;
+        font-size: 80%;
+      }
+      span:nth-child(2) {
+        font-size: 60%;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h2>Minha Lista de Interesses</h2>
+      <label for="interest">Interesse: </label>
+      <input id="data" type="text" />
+      <button id="btn-add">Adicionar</button>
+      <button id="btn-clear">Limpar</button>
+      <ul id="list">
+        <li><span>Esportes</span> <span>&#x274C;</span></li>
+        <li><span>Programação</span> <span>&#x274C;</span></li>
+        <li><span>Leitura</span> <span>&#x274C;</span></li>
+      </ul>
+    </div>
+
+    <script>
+      window.addEventListener("load", () => {
+        document.getElementById("btn-add").addEventListener("click", addItem);
+        document
+          .getElementById("btn-clear")
+          .addEventListener("click", clearItems);
+
+        const list = document.getElementById("list");
+        for (const item of list.children) {
+          item.lastElementChild.addEventListener("click", removeItem);
+        }
+      });
+
+      function addItem(event) {
+        const input = document.getElementById("data");
+        const list = document.getElementById("list");
+
+        const item = document.createElement("li");
+        const textSpan = document.createElement("span");
+        const removeSpan = document.createElement("span");
+
+        removeSpan.addEventListener("click", removeItem);
+
+        textSpan.textContent = input.value;
+        removeSpan.innerHTML = "&#x274C;";
+        item.appendChild(textSpan);
+        item.appendChild(removeSpan);
+        list.appendChild(item);
+
+        input.value = "";
+      }
+
+      function removeItem(event) {
+        event.target.parentNode.remove();
+      }
+
+      function clearItems(event) {
+        const list = document.getElementById("list");
+        list.innerHTML = "";
+      }
+    </script>
+  </body>
+</html>

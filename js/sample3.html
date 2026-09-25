@@ -17,6 +17,9 @@
         margin: 5px;
         border: 1px solid darkgray;
       }
+      .hidden {
+        opacity: 0;
+      }
     </style>
   </head>
   <body>
@@ -29,6 +32,7 @@
       <article>F</article>
       <article>G</article>
     </main>
+
     <script>
       window.addEventListener("load", () => {
         const articles = document.getElementsByTagName("article");
@@ -39,9 +43,7 @@
       });
 
       function toggleVisibility(event) {
-        console.log("toggle()");
-        const visible = (event.target.style.visibility = "visible");
-        event.target.style.visibility = visible ? "hidden" : "visible";
+        event.target.classList.toggle("hidden");
       }
     </script>
   </body>
