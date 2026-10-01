@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sample #5</title>
+  </head>
+  <body>
+    <button id="button">Click Me!</button>
+    <div id="message"></div>
+    <progress min="0" max="10" value="5"></div>
+
+    <script>
+      window.onload = () => {
+        const btn = document.getElementById("button");
+        btn.onclick = () => {
+          const msg = document.getElementById("message");
+          msg.textContent = "Request sent...";
+
+          const xhr = new XMLHttpRequest();
+          xhr.open("GET", "https://httpbin.org/delay/3");
+          xhr.onload = () => {
+            msg.textContent = "Response received!";
+          };
+          xhr.send();
+        };
+      };
+    </script>
+  </body>
+</html>

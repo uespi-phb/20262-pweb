@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Consulta CEP</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="box">
+      <h3>Consulta CEP</h3>
+      <div class="field">
+        <label for="zipcode">CEP</label>
+        <input
+          id="zipcode"
+          type="text"
+          pattern="^[0-9]{8}$"
+          minlength="8"
+          maxlength="8"
+        />
+        <button id="btn-zip" disabled>Buscar</button>
+      </div>
+      <div class="field">
+        <label for="place">Logradouro</label>
+        <input id="place" type="text" readonly />
+      </div>
+      <div class="field">
+        <label for="neighborhood">Bairro</label>
+        <input id="neighborhood" type="text" readonly />
+      </div>
+      <div class="field">
+        <label for="city">Município</label>
+        <input id="city" type="text" readonly />
+      </div>
+      <div class="field">
+        <label for="state">UF</label>
+        <input id="state" type="text" readonly />
+      </div>
+      <script src="./script.js"></script>
+    </div>
+  </body>
+</html>
