@@ -111,3 +111,8 @@ code {
   padding: 4px 8px;
   background: var(--code-bg);
 }
+
+.movie-card {
+    background-color: var(--accent-bg);
+    margin: 0.25rem;
+}
